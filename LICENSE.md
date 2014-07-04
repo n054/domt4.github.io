@@ -1,4 +1,4 @@
-Copyright (c) {{{year}}}, {{{fullname}}}
+Copyright (c) {{{2014}}}, {{{Dominyk Tiller}}}
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
