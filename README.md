@@ -1,4 +1,4 @@
 domt4.github.io
 ===============
 
-*More will be happening here soon*.
+*More will be happening here soon…ish*.
