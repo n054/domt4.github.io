@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="utf-8">
+    <meta name="dc.creator" content="Rémi Prévost - http://exomel.com">
+    
+    <title>Homebrew — Il gestore di pacchetti mancante per OS X</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./css/screen.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="./css/pygments.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="./css/fonts/chunkfive/chunkfive.css" type="text/css" media="screen">
+    
+    
+    <script type="text/javascript">
+        function selectText(elem) {
+            if (document.selection) {
+                var range = document.body.createTextRange();
+                range.moveToElementText(elem);
+                range.select();
+            } else if (window.getSelection) {
+                var range = document.createRange();
+                range.selectNode(elem);
+                window.getSelection().addRange(range);
+            }
+        }
+
+        function loadLanguage(lang) {
+            if (lang === "it") {
+                return;
+            } else if (lang === "en") {
+                window.location.replace("index.html");
+            } else {
+                window.location.replace("index_" + lang + ".html");
+            }
+        }
+    </script>
+  </head>
+  <body>
+    <div id="wrap">
+      <div id="header">
+        <h1><a href="./">Homebrew</a></h1>
+        <p id="subtitle"><strong>Il gestore di pacchetti mancante per OS X</strong></p>
+
+        <select onchange="loadLanguage(this.options[this.selectedIndex].value)">
+          
+            
+            <option value="en">English</option>
+            
+          
+            
+            <option value="ar">العربية</option>
+            
+          
+            
+            <option value="az">Azərbaycanca</option>
+            
+          
+            
+            <option value="ca">Català</option>
+            
+          
+            
+            <option value="de">Deutsch</option>
+            
+          
+            
+            <option value="es">Español</option>
+            
+          
+            
+            <option value="fa">فارسی</option>
+            
+          
+            
+            <option value="fr">Français</option>
+            
+          
+            
+            <option value="he">עברית</option>
+            
+          
+            
+            <option value="it" selected="selected">Italiano</option>
+            
+          
+            
+            <option value="ja">日本語</option>
+            
+          
+            
+            <option value="ko">한국어</option>
+            
+          
+            
+            <option value="nl">Nederlands</option>
+            
+          
+            
+            <option value="no">Norsk</option>
+            
+          
+            
+            <option value="pl">Polski</option>
+            
+          
+            
+            <option value="pt-br">Português Brasileiro</option>
+            
+          
+            
+            <option value="ru">Русский</option>
+            
+          
+            
+            <option value="th">ไทย</option>
+            
+          
+            
+            <option value="tr">Türkçe</option>
+            
+          
+            
+            <option value="uk">Українська</option>
+            
+          
+            
+            <option value="vi">Tiếng Việt</option>
+            
+          
+            
+            <option value="zh-cn">简体中文</option>
+            
+          
+            
+            <option value="zh-tw">繁體中文</option>
+            
+          
+        </select>
+      </div>
+
+      <div id="informations">
+        <ul>
+          <li>
+            <div class="group row">
+              <div class="col-1">
+                <p>Homebrew installa <a href="https://github.com/Homebrew/homebrew/tree/master/Library/Formula" title="List of Homebrew packages">quello che ti serve</a> e che Apple non ha installato.</p>
+              </div>
+              <div class="col-2">
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>brew install wget</code></pre></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="group row">
+              <div class="col-1">
+                <p>Homebrew installa i pacchetti nelle loro directory e crea un collegamento simbolico in <code>/usr/local</code>.</p>
+              </div>
+              <div class="col-2">
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span><span class="nb">cd</span> /usr/local
+<span class="nv">$ </span>find Cellar
+Cellar/wget/1.15
+Cellar/wget/1.15/bin/wget
+Cellar/wget/1.15/share/man/man1/wget.1
+
+<span class="nv">$ </span>ls -l bin
+bin/wget -&gt; ../Cellar/wget/1.15/bin/wget</code></pre></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="group row">
+              <div class="col-1">
+                <p>Homebrew non installerà file all'infuori del suo percorso e puoi installare Homebrew dove ti pare.</p>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="group row">
+              <div class="col-1">
+                <p>Crea facilmente i tuoi pacchetti Homebrew.</p>
+              </div>
+              <div class="col-2">
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>brew create http://foo.com/bar-1.0.tgz
+Created /usr/local/Library/Formula/bar.rb</code></pre></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="group row">
+              <div class="col-1">
+                <p>Tutto si basa su Git e Ruby quindi sentiti libero di sperimentare col codice, sapendo che potrai facilmente fare il revert delle tue modifiche ed il merge con gli aggiornamenti ufficiali.</p>
+              </div>
+              <div class="col-2">
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>brew edit wget <span class="c"># opens in $EDITOR!</span></code></pre></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="group row">
+              <div class="col-1">
+                <p>Le formule di Homebrew sono semplici script in Ruby:</p>
+              </div>
+              <div class="col-2">
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="nb">require</span> <span class="s2">&quot;formula&quot;</span>
+
+<span class="k">class</span> <span class="nc">Wget</span> <span class="o">&lt;</span> <span class="no">Formula</span>
+  <span class="n">homepage</span> <span class="s2">&quot;https://www.gnu.org/software/wget/&quot;</span>
+  <span class="n">url</span> <span class="s2">&quot;https://ftp.gnu.org/gnu/wget/wget-1.15.tar.gz&quot;</span>
+  <span class="n">sha1</span> <span class="s2">&quot;f3c925f19dfe5ed386daae4f339175c108c50574&quot;</span>
+
+  <span class="k">def</span> <span class="nf">install</span>
+    <span class="nb">system</span> <span class="s2">&quot;./configure&quot;</span><span class="p">,</span> <span class="s2">&quot;--prefix=</span><span class="si">#{</span><span class="n">prefix</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="nb">system</span> <span class="s2">&quot;make&quot;</span><span class="p">,</span> <span class="s2">&quot;install&quot;</span>
+  <span class="k">end</span>
+<span class="k">end</span></code></pre></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="group row">
+              <div class="col-1">
+                <p>Homebrew completa OS X. Installa le tue gemme con <code>gem</code> e quindi le loro dipendenze con <code>brew</code>.</p>
+              </div>
+            </div>
+          </li>
+
+          <li>
+            <div class="group row">
+              <h2 id="install">Installa Homebrew</h2>
+              <pre style='clear:both;text-align:center;margin-bottom:0.9em'><code id='selectable' onclick="selectText(this)">ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</code></pre>
+              <div class="col-1">
+                <p>Incolla questa riga su una finestra del Terminale.</p>
+              </div>
+              <div class="col-2">
+                <p>Lo script ti spiega quello che sta facendo e aspetterà un tuo comando. Ci sono ulteriori opzioni di installazione <a href='https://github.com/Homebrew/homebrew/wiki/Installation'>qui</a> (necessarie sulla 10.5).</p>
+              </div>
+            </div>
+          </li>
+
+          <li>
+            <div class="group row">
+              <h2 id="further-doc">Ulteriore Documentazione</h2>
+              <div class="button">
+                <p><a href="https://github.com/Homebrew/homebrew/wiki">Homebrew Wiki</a></p>
+              </div>
+            </div>
+          </li>
+
+          <li>
+            <div class="group row credits">
+              <p>Versione originale creata da <a href="http://methylblue.com/">Max Howell</a>. Sito di <a href="http://exomel.com">Rémi Prévost</a>. Traduzione di <a href="http://mattia-asti.it">Mattia Asti</a></p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <a href="https://github.com/Homebrew/homebrew"><img id="forkme" src="https://aral.github.com/fork-me-on-github-retina-ribbons/right-grey@2x.png" alt="Fork me on GitHub"></a>
+  </body>
+</html>

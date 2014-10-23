@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta name="dc.creator" content="Rémi Prévost - http://exomel.com">
+    
+    <title>Homebrew — OS X 용 패키지 관리자</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./css/screen.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="./css/pygments.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="./css/fonts/chunkfive/chunkfive.css" type="text/css" media="screen">
+    
+    
+    <script type="text/javascript">
+        function selectText(elem) {
+            if (document.selection) {
+                var range = document.body.createTextRange();
+                range.moveToElementText(elem);
+                range.select();
+            } else if (window.getSelection) {
+                var range = document.createRange();
+                range.selectNode(elem);
+                window.getSelection().addRange(range);
+            }
+        }
+
+        function loadLanguage(lang) {
+            if (lang === "ko") {
+                return;
+            } else if (lang === "en") {
+                window.location.replace("index.html");
+            } else {
+                window.location.replace("index_" + lang + ".html");
+            }
+        }
+    </script>
+  </head>
+  <body>
+    <div id="wrap">
+      <div id="header">
+        <h1><a href="./">Homebrew</a></h1>
+        <p id="subtitle"><strong>OS X 용 패키지 관리자</strong></p>
+
+        <select onchange="loadLanguage(this.options[this.selectedIndex].value)">
+          
+            
+            <option value="en">English</option>
+            
+          
+            
+            <option value="ar">العربية</option>
+            
+          
+            
+            <option value="az">Azərbaycanca</option>
+            
+          
+            
+            <option value="ca">Català</option>
+            
+          
+            
+            <option value="de">Deutsch</option>
+            
+          
+            
+            <option value="es">Español</option>
+            
+          
+            
+            <option value="fa">فارسی</option>
+            
+          
+            
+            <option value="fr">Français</option>
+            
+          
+            
+            <option value="he">עברית</option>
+            
+          
+            
+            <option value="it">Italiano</option>
+            
+          
+            
+            <option value="ja">日本語</option>
+            
+          
+            
+            <option value="ko" selected="selected">한국어</option>
+            
+          
+            
+            <option value="nl">Nederlands</option>
+            
+          
+            
+            <option value="no">Norsk</option>
+            
+          
+            
+            <option value="pl">Polski</option>
+            
+          
+            
+            <option value="pt-br">Português Brasileiro</option>
+            
+          
+            
+            <option value="ru">Русский</option>
+            
+          
+            
+            <option value="th">ไทย</option>
+            
+          
+            
+            <option value="tr">Türkçe</option>
+            
+          
+            
+            <option value="uk">Українська</option>
+            
+          
+            
+            <option value="vi">Tiếng Việt</option>
+            
+          
+            
+            <option value="zh-cn">简体中文</option>
+            
+          
+            
+            <option value="zh-tw">繁體中文</option>
+            
+          
+        </select>
+      </div>
+
+      <div id="informations">
+        <ul>
+          <li>
+            <div class="group row">
+              <div class="col-1">
+                <p>Homebrew는 Apple에서 제공하지 않지만 <a href="https://github.com/Homebrew/homebrew/tree/master/Library/Formula" title="List of Homebrew packages">필요한 패키지</a>를 설치합니다.</p>
+              </div>
+              <div class="col-2">
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>brew install wget</code></pre></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="group row">
+              <div class="col-1">
+                <p>Homebrew는 자신의 디렉토리에 패키지를 설치하고, <code>/usr/local</code>안에 그 파일을 심볼링 링크로 겁니다.</p>
+              </div>
+              <div class="col-2">
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span><span class="nb">cd</span> /usr/local
+<span class="nv">$ </span>find Cellar
+Cellar/wget/1.15
+Cellar/wget/1.15/bin/wget
+Cellar/wget/1.15/share/man/man1/wget.1
+
+<span class="nv">$ </span>ls -l bin
+bin/wget -&gt; ../Cellar/wget/1.15/bin/wget</code></pre></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="group row">
+              <div class="col-1">
+                <p>Homebrew는 prefix가 붙지 않는 파일은 설치 하지 않지만, 여러분이 원하는 위치 어느곳이든 설치할 수 있습니다.</p>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="group row">
+              <div class="col-1">
+                <p>자신의 Homebrew 패키지를 간편하게 만들 수 있습니다.</p>
+              </div>
+              <div class="col-2">
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>brew create http://foo.com/bar-1.0.tgz
+Created /usr/local/Library/Formula/bar.rb</code></pre></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="group row">
+              <div class="col-1">
+                <p>Homebrew는 모두 git과 ruby기반으로 되어 있어, 여러분이 이미 가진 지식으로 쉽게 수정하거나 업데이트, 병합할 수 있습니다.</p>
+              </div>
+              <div class="col-2">
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>brew edit wget <span class="c"># opens in $EDITOR!</span></code></pre></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="group row">
+              <div class="col-1">
+                <p>Homebrew formula는 간단한 Ruby 스크립트입니다:</p>
+              </div>
+              <div class="col-2">
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="nb">require</span> <span class="s2">&quot;formula&quot;</span>
+
+<span class="k">class</span> <span class="nc">Wget</span> <span class="o">&lt;</span> <span class="no">Formula</span>
+  <span class="n">homepage</span> <span class="s2">&quot;https://www.gnu.org/software/wget/&quot;</span>
+  <span class="n">url</span> <span class="s2">&quot;https://ftp.gnu.org/gnu/wget/wget-1.15.tar.gz&quot;</span>
+  <span class="n">sha1</span> <span class="s2">&quot;f3c925f19dfe5ed386daae4f339175c108c50574&quot;</span>
+
+  <span class="k">def</span> <span class="nf">install</span>
+    <span class="nb">system</span> <span class="s2">&quot;./configure&quot;</span><span class="p">,</span> <span class="s2">&quot;--prefix=</span><span class="si">#{</span><span class="n">prefix</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="nb">system</span> <span class="s2">&quot;make&quot;</span><span class="p">,</span> <span class="s2">&quot;install&quot;</span>
+  <span class="k">end</span>
+<span class="k">end</span></code></pre></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="group row">
+              <div class="col-1">
+                <p>Homebrew는 OS X을 보완해 줍니다. <code>gem</code>명령으로 gem을, <code>brew</code>명령으로 gem의 의존관계의 모듈을 설치합니다.</p>
+              </div>
+            </div>
+          </li>
+
+          <li>
+            <div class="group row">
+              <h2 id="install">Homebrew 설치하기</h2>
+              <pre style='clear:both;text-align:center;margin-bottom:0.9em'><code id='selectable' onclick="selectText(this)">ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</code></pre>
+              <div class="col-1">
+                <p>터미널 프롬프트에서 붙여넣기 하세요.</p>
+              </div>
+              <div class="col-2">
+                <p>스크립트에서 무엇을 하는지에 대해 설명하고, 실행하기 전에 일단 정지합니다. 더 자세한 설치 관련사항을 보려면  <a href='https://github.com/Homebrew/homebrew/wiki/Installation'>여기</a>를 봐 주세요 (10.5 버전 필요).</p>
+              </div>
+            </div>
+          </li>
+
+          <li>
+            <div class="group row">
+              <h2 id="further-doc">추가 문서</h2>
+              <div class="button">
+                <p><a href="https://github.com/Homebrew/homebrew/wiki">Homebrew 위키</a></p>
+              </div>
+            </div>
+          </li>
+
+          <li>
+            <div class="group row credits">
+              <p>Original code by <a href="http://methylblue.com/">Max Howell</a>. Website by <a href="http://exomel.com">Rémi Prévost</a>. Translation by <a href="http://rkjun.wordpress.com/">Juntai Park</a>.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <a href="https://github.com/Homebrew/homebrew"><img id="forkme" src="https://aral.github.com/fork-me-on-github-retina-ribbons/right-grey@2x.png" alt="Fork me on GitHub"></a>
+  </body>
+</html>
