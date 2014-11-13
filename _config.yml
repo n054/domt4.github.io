@@ -55,5 +55,3 @@ safe: true
 lsi: false
 highlighter: pygments
 host: 127.0.0.1
-gems:
-  - jekyll-redirect-from
