@@ -4,12 +4,14 @@ lang: zh-TW
 subtitle: OS X 缺少的套件管理工具
 
 pagecontent:
+  question: What Does Homebrew Do?
   what: 使用 Homebrew 安裝 Apple 沒有預裝但是<a href="https://github.com/Homebrew/homebrew/tree/master/Library/Formula" title="List of Homebrew packages">你需要的東西</a>。
   how: Homebrew 會將 packages 安裝在他們自己的目錄，然後把檔案 symlink 到 <code>/usr/local</code> 下。
   prefix: Homebrew 不會把檔案放在預設路徑之外的地方，因此可以在任何位置使用 Homebrew 安裝程式。
   createpackages: 輕鬆建立你自己的 Homebrew packages。
   hack: 完全以 Git 和 Ruby 為基底，所以你可以盡情地運用這些知識，輕鬆地復原你的修改以及合併上游的更新。
   formula: "Homebrew 的 formula 都是簡單的 Ruby 腳本："
+  editor: 使用 $EDITOR 編輯!
   complement: Homebrew 互補了 OS X，你可以使用 <code>gem</code> 來安裝 Ruby 套件， 而它的依存軟體可以用 <code>brew</code> 安裝。
   install:
     install: 安裝 Homebrew
@@ -18,6 +20,6 @@ pagecontent:
   doc:
     further: 更多說明文件
   foot:
-    code: Original code by <a href="http://methylblue.com/">Max Howell</a>.
+    code: Original code by <a href="https://mxcl.github.io/">Max Howell</a>.
     page: Website by <a href="http://exomel.com">Rémi Prévost</a>.
 ---

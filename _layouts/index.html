@@ -9,6 +9,19 @@
     <title>Homebrew — {{ page.subtitle }}</title>
     {% endif %}
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="img/favicon.ico">
+    <link rel="icon" sizes="16x16" href="img/favicon-16x16.png" >
+    <link rel="icon" sizes="32x32" href="img/favicon-32x32.png">
+    <link rel="icon" sizes="96x96" href="img/favicon-96x96.png">
+    <link rel="icon" sizes="192x192" href="img/favicon-192x192.png">
+    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="img/apple-touch-icon-57x57-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="img/apple-touch-icon-72x72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="76x76" href="img/apple-touch-icon-76x76-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="img/apple-touch-icon-114x114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="img/apple-touch-icon-120x120-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="img/apple-touch-icon-144x144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="img/apple-touch-icon-152x152-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="180x180" href="img/apple-touch-icon-180x180-precomposed.png">
     <link rel="stylesheet" href="./css/screen.css" type="text/css" media="screen">
     <link rel="stylesheet" href="./css/pygments.css" type="text/css" media="screen">
     <link rel="stylesheet" href="./css/fonts/chunkfive/chunkfive.css" type="text/css" media="screen">
@@ -54,9 +67,9 @@
       <div id="informations">
         <ul>
           <li>
-            <h2>How Do I Install Homebrew?</h2>
             <div class="group row">
               <h2 id="install">{{ page.pagecontent.install.install }}</h2>
+              <br>
               <pre style='clear:both;text-align:center;margin-bottom:0.9em'><code id='selectable' onclick="selectText(this)">ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</code></pre>
               <div class="col-1">
                 <p>{{ page.pagecontent.install.paste }}</p>
@@ -66,25 +79,27 @@
               </div>
             </div>
           </li>
-          <br>
 
-      <h2>What Does Homebrew Do?</h2>
-          <div class="group row">
-            <div class="col-1">
-              <p>{{ page.pagecontent.what }}</p>
-            </div>
-          <div class="col-2">
+          <li>
+            <div class="group row">
+             <h2 id="question">{{ page.pagecontent.question }}</h2>
+             <br>
+              <div class="col-1">
+                <p>{{ page.pagecontent.what }}</p>
+              </div>
+              <div class="col-2">
 {% highlight bash %}
 $ brew install wget
 {% endhighlight %}
+              </div>
             </div>
-          </div>
-        <li>
-          <div class="group row">
-            <div class="col-1">
-              <p>{{ page.pagecontent.how }}</p>
-            </div>
-          <div class="col-2">
+          </li>
+          <li>
+            <div class="group row">
+              <div class="col-1">
+                <p>{{ page.pagecontent.how }}</p>
+              </div>
+              <div class="col-2">
 {% highlight bash %}
 $ cd /usr/local
 $ find Cellar
@@ -95,47 +110,47 @@ Cellar/wget/1.16.1/share/man/man1/wget.1
 $ ls -l bin
 bin/wget -> ../Cellar/wget/1.16.1/bin/wget
 {% endhighlight %}
+              </div>
             </div>
-          </div>
-        </li>
-        <li>
-          <div class="group row">
-            <div class="col-1">
-              <p>{{ page.pagecontent.prefix }}</p>
+          </li>
+          <li>
+            <div class="group row">
+              <div class="col-1">
+                <p>{{ page.pagecontent.prefix }}</p>
+              </div>
             </div>
-          </div>
-        </li>
-        <li>
-          <div class="group row">
-            <div class="col-1">
-              <p>{{ page.pagecontent.createpackages }}</p>
-            </div>
-            <div class="col-2">
+          </li>
+          <li>
+            <div class="group row">
+              <div class="col-1">
+                <p>{{ page.pagecontent.createpackages }}</p>
+              </div>
+              <div class="col-2">
 {% highlight bash %}
 $ brew create https://foo.com/bar-1.0.tgz
 Created /usr/local/Library/Formula/bar.rb
 {% endhighlight %}
+              </div>
             </div>
-          </div>
-        </li>
-        <li>
-          <div class="group row">
-            <div class="col-1">
-              <p>{{ page.pagecontent.hack }}</p>
-            </div>
-            <div class="col-2">
+          </li>
+          <li>
+            <div class="group row">
+              <div class="col-1">
+                <p>{{ page.pagecontent.hack }}</p>
+              </div>
+              <div class="col-2">
 {% highlight bash %}
-$ brew edit wget # opens in $EDITOR!
+$ brew edit wget # {{ page.pagecontent.editor }}
 {% endhighlight %}
+              </div>
             </div>
-          </div>
-        </li>
-        <li>
-          <div class="group row">
-            <div class="col-1">
-              <p>{{ page.pagecontent.formula }}</p>
-            </div>
-            <div class="col-2">
+          </li>
+          <li>
+            <div class="group row">
+              <div class="col-1">
+                <p>{{ page.pagecontent.formula }}</p>
+              </div>
+              <div class="col-2">
 {% highlight ruby %}
 class Wget < Formula
   homepage "https://www.gnu.org/software/wget/"
@@ -148,58 +163,57 @@ class Wget < Formula
   end
 end
 {% endhighlight %}
+              </div>
             </div>
-          </div>
-        </li>
-        <li>
-          <div class="group row">
-            <div class="col-1">
-              <p>{{ page.pagecontent.complement }}</p>
+          </li>
+          <li>
+            <div class="group row">
+              <div class="col-1">
+                <p>{{ page.pagecontent.complement }}</p>
+              </div>
             </div>
-          </div>
-        </li>
+          </li>
 
-        <li>
-          <div class="group row">
-            <h2 id="further-doc">{{ page.pagecontent.doc.further }}</h2>
-            <div class="button">
-              <p><a href="https://github.com/Homebrew/homebrew/tree/master/share/doc/homebrew#readme">https://github.com/Homebrew/homebrew/tree/master/share/doc/homebrew#readme</a></p>
+          <li>
+            <div class="group row">
+              <h2 id="further-doc">{{ page.pagecontent.doc.further }}</h2>
+              <div class="button">
+                <p><a href="https://git.io/brew-docs">https://git.io/brew-docs</a></p>
+              </div>
             </div>
-          </div>
-        </li>
+          </li>
 
-        <li>
-          <div class="group row credits">
-             <p>{{ page.pagecontent.foot.code }} {{ page.pagecontent.foot.page }} {{ page.pagecontent.foot.translation }}</p>
-          </div>
-         </li>
-       </ul>
+          <li>
+            <div class="group row credits">
+              <p>{{ page.pagecontent.foot.code }} {{ page.pagecontent.foot.page }} {{ page.pagecontent.foot.translation }}</p>
+            </div>
+          </li>
+        </ul>
+      </div>
     </div>
-  </div>
-
-  <a href="https://github.com/Homebrew/homebrew"><img id="forkme" src="https://aral.github.com/fork-me-on-github-retina-ribbons/right-grey@2x.png" alt="Fork me on GitHub"></a>
-  <script>
-    function selectText(elem) {
-      if (document.selection) {
-          var range = document.body.createTextRange();
-          range.moveToElementText(elem);
-          range.select();
-      } else if (window.getSelection) {
-          var range = document.createRange();
-          range.selectNode(elem);
-          window.getSelection().addRange(range);
+    <a href="https://github.com/Homebrew/homebrew"><img id="forkme" src="https://aral.github.com/fork-me-on-github-retina-ribbons/right-grey@2x.png" alt="Fork me on GitHub"></a>
+    <script>
+      function selectText(elem) {
+        if (document.selection) {
+            var range = document.body.createTextRange();
+            range.moveToElementText(elem);
+            range.select();
+        } else if (window.getSelection) {
+            var range = document.createRange();
+            range.selectNode(elem);
+            window.getSelection().addRange(range);
+        }
       }
-    }
 
-    function loadLanguage(lang) {
-      if (lang === {{ page.lang | jsonify }}) {
-          return;
-      } else if (lang === "en") {
-          window.location.replace("index.html");
-      } else {
-          window.location.replace("index_" + lang + ".html");
+      function loadLanguage(lang) {
+        if (lang === {{ page.lang | jsonify }}) {
+            return;
+        } else if (lang === "en") {
+            window.location.replace("index.html");
+        } else {
+            window.location.replace("index_" + lang + ".html");
+        }
       }
-    }
-  </script>
-</body>
+    </script>
+  </body>
 </html>
